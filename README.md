@@ -7,17 +7,17 @@
 
 ## Function List
 (EN)
-- Sign in with Google
-- Sign in with email/password
-- Sign up with email/password
-- Recover forget password
-- Send email verification to a newly created user
-- Protect app’s inner pages URL using route guard’s canActivate method
-- Prevent user to access sign in and sign up URL when a user is already logged in
-- Change themes light or dark
-- Change language english or spanish
-- Page Profile and change password
-- Sidebar and navbar responsive
+- Sign in with Google.
+- Sign in with email/password.
+- Sign up with email/password.
+- Recover forget password.
+- Send email verification to a newly created user.
+- Protect app’s inner pages URL using route guard’s canActivate method.
+- Prevent user to access sign in and sign up URL when a user is already logged in.
+- Change themes light or dark.
+- Change language english or spanish.
+- Page Profile and change password.
+- Sidebar and navbar.
 
 (ES)
 - Iniciar sesión con Google.
