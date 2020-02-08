@@ -1,7 +1,9 @@
 ## APP BASE Angular Firebase Access Account Profile Responsive
 
-(EN)Base application to start a particular project
-(ES)Aplicación base para empezar algun proyecto en particular
+(EN)
+- Base application to start a particular project
+(ES)
+- Aplicación base para empezar algun proyecto en particular
 
 ## Function List
 (EN)
@@ -42,7 +44,7 @@
 - Npm install
 - Para iniciar la app "ng serve -o"
 
-## Docu Firebase
+## Documentation Firebase
 https://firebase.google.com/docs/?authuser=1
 
 ## Demo (Firebase)
