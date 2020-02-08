@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~ngx-toastr/toastr.css';  
+
+html, body { height: 100vh; }
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url('./assets/image1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: white;
+    text-decoration:none; 
+}
+
+a:hover {
+    opacity: 50%;
+}
+
+i {
+    margin: 10px;
+}

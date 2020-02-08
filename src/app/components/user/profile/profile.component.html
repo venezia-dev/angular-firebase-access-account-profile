@@ -1,0 +1,57 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <h1>{{'page.profile' | translate}}</h1>
+</div>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center start" fxLayoutAlign.xs="center center">
+  <!-- Card Information -->
+  <mat-card>
+    <h2>{{'page.info' | translate}}</h2>
+    <mat-card-content>
+      <mat-list>
+        <h3 mat-subheader>{{'page.profile' | translate}}</h3>
+        <mat-list-item>
+          <mat-icon mat-list-icon>assignment_ind</mat-icon>
+          <h4 mat-line>{{'page.name' | translate}}</h4>
+          <p mat-line>{{name}}</p>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>email</mat-icon>
+          <h4 mat-line>Email</h4>
+          <p mat-line>{{email}}</p>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>date_range</mat-icon>
+          <h4 mat-line>{{'page.create' | translate}}</h4>
+          <p mat-line>{{dateCreation | date}}</p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon mat-list-icon>sync</mat-icon>
+          <h4 mat-line>{{'page.lastsignin' | translate}}</h4>
+          <p mat-line>{{lastSignin | date}}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  <!-- Card Avatar -->
+  <mat-card *ngIf="imageUrl">
+    <h2>Avatar</h2>
+    <mat-card-content>
+      <img src="{{imageUrl}}">
+    </mat-card-content>
+  </mat-card>
+  <!-- Card Password -->
+  <mat-card *ngIf="!imageUrl">
+    <h2>{{'page.changep' | translate}}</h2>
+    <mat-card-content>
+      <mat-list>
+        <h3 mat-subheader>{{'page.infopass' | translate}}</h3>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="UserService.ForgotPassword(email)">Send</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

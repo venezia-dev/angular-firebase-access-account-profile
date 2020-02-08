@@ -1,0 +1,16 @@
+{
+    "page.dashboard" : "Dashboard",
+    "page.info" : "Information",
+    "page.chart" : "Chart",
+    "page.option" : "Option",
+    "page.close" : "Close",
+    "page.terms" : "Terms",
+    "page.profile" : "Profile",
+    "page.name" : "Name",
+    "page.create" : "Registration date",
+    "page.lastsignin" : "Last Sign in",
+    "page.changep" : "Change Password",
+    "page.infopass" : "If you want to change the password, touch the following button, a link will be sent to your mail to change it.",
+    "page.confirmEmail" : "You have not confirmed the validation email. Please look in your email box.",
+    "page.resend" : "Resend"
+}

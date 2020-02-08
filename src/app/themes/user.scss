@@ -1,0 +1,33 @@
+.container{
+    height: 100vh;
+}
+
+.card {
+    margin: 1em;
+    padding: 3em;
+    width: 20em;
+}
+
+.input {
+    display: block;
+}
+
+.form-buttons {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.header-image {
+    background-image: url('../../assets/logovd.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn {
+    float: right;
+}
+
+.link {
+    float: left;
+    padding-top: 0.7em;
+}

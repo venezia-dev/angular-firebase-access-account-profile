@@ -1,0 +1,17 @@
+{
+    "page.dashboard" : "Tablero",
+    "page.info" : "Información",
+    "page.chart" : "Grafico",
+    "page.option" : "Opción",
+    "page.close" : "Cerrar",
+    "page.terms" : "Terminos",
+    "page.profile" : "Perfil",
+    "page.name" : "Nombre",
+    "page.create" : "Fecha de Registro",
+    "page.lastsignin" : "Último inicio de sesión",
+    "page.changep" : "Cambiar Contraseña",
+    "page.infopass" : "Si desea cambiar la contraseña, toque el siguiente botón, se le enviará un enlace a su correo para cambiarla.",
+    "page.confirmEmail" : "No ha confirmado el correo electrónico de validación. Por favor, mire en su casilla de correo electrónico.",
+    "page.resend" : "Reenviar"
+
+}   

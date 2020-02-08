@@ -1,0 +1,70 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="container">
+    <mat-card class="card">
+        <h2>Sign up</h2>
+        <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>Accesodecuenta-Perfil</mat-card-title>
+            <mat-card-subtitle>Register with some simple data.
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="signUp()">
+                <mat-form-field class="input">
+                    <input matInput placeholder="Name" formControlName="name" type="text" minlength="4" maxlength="20"
+                        required>
+                </mat-form-field>
+                <mat-error *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)">
+                    <div *ngIf="form.get('name').errors.required">
+                        Please, write a name.
+                    </div>
+                    <div *ngIf="form.get('name').errors.minlength">
+                        Min 4 character!
+                    </div>
+                </mat-error>
+                <mat-form-field class="input">
+                    <input matInput placeholder="Email" formControlName="email" type="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="40" required>
+                </mat-form-field>
+                <mat-error *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)">
+                    <div *ngIf="form.get('email').errors.required">
+                        Please, write any valid email.
+                    </div>
+                    <div *ngIf="form.get('email').errors.pattern">
+                        Email valid plz!
+                    </div>
+                </mat-error>
+                <mat-form-field class="input">
+                    <input matInput placeholder="Password" formControlName="password" type="password" minlength="4"
+                        required>
+                </mat-form-field>
+                <mat-error
+                    *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)">
+                    <div *ngIf="form.get('password').errors.required">
+                        Please, write any valid password.
+                    </div>
+                    <div *ngIf="form.get('password').errors.minlength">
+                        Password min 4 charcarter!
+                    </div>
+                </mat-error>
+                <p>
+                    <mat-checkbox formControlName="check" required>I agree all statements in <a (click)="termsDialog()"><u>terms
+                                of service.</u></a></mat-checkbox>
+                    <mat-error
+                        *ngIf="form.get('check').invalid && (form.get('check').dirty || form.get('check').touched)">
+                        <div *ngIf="form.get('check').errors.required">
+                            Please, check terms.
+                        </div>
+                    </mat-error>
+                </p>
+                <p>
+                    <button mat-raised-button color="primary" (click)="UserService.GoogleAuth()" [disabled]="form.get('check').invalid" type="button">Sign up with Google <img src="../../../../assets/google.png" width="25px" height="25px"></button>
+                </p>
+                <div class="form-buttons">
+                    <a routerLink="/signin" class="link">I have already signed up.</a>
+                    <button mat-raised-button color="primary" class="btn" [disabled]="form.invalid" type="submit">Sign
+                        up</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

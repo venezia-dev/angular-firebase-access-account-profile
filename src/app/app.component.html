@@ -1,0 +1,81 @@
+<div *ngIf="!isLoggedIn; else loggedIn">
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #loggedIn>
+    <div class="app" [class.alternative]="otherTheme">
+        <mat-toolbar color="warm">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="sidenav.toggle()" fxShow="true">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <button mat-button routerLink="/">VeneziaDev <img src="../assets/logox30.png"></button>
+                <span class="menu-spacer"></span>
+                <button mat-button (click)="changeTheme()" *ngIf="!otherTheme"><i
+                        class="material-icons">brightness_6</i></button>
+                <button mat-button (click)="changeTheme()" *ngIf="otherTheme"><i
+                        class="material-icons">brightness_2</i></button>
+                <div fxShow="true" fxHide.lt-md>
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="material-icons">language</i></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item [ngClass]="{'active': activeLang == 'es'}" (click)="cambiarLenguaje('es')">Spanish</button>
+                        <button mat-menu-item [ngClass]="{'active': activeLang == 'en'}" (click)="cambiarLenguaje('en')">English</button>
+                    </mat-menu>
+                    <a routerLink="/profile" mat-button><i class="material-icons">person</i></a>
+                    <a style="cursor: pointer;" (click)="logout()" mat-button><i
+                            class="material-icons">exit_to_app</i></a>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-sidenav-container fxFlexFill>
+            <mat-sidenav #sidenav mode="side" opened>
+                <mat-nav-list>
+                    <div fxHide.gt-sm>
+                        <a (click)="sidenav.toggle()" mat-list-item>
+                            <i class="material-icons">close</i>{{'page.close' | translate}}
+                        </a>
+                        <button mat-button [matMenuTriggerFor]="menu"><i class="material-icons">language</i></button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item [ngClass]="{'active': activeLang == 'es'}" (click)="cambiarLenguaje('es')">Spanish</button>
+                            <button mat-menu-item [ngClass]="{'active': activeLang == 'en'}" (click)="cambiarLenguaje('en')">English</button>
+                        </mat-menu>
+                        <a routerLink="profile" (click)="sidenav.toggle()" mat-button><i class="material-icons">person</i></a>
+                        <a style="cursor: pointer;" (click)="logout()" mat-button><i
+                                class="material-icons">exit_to_app</i></a>
+                    </div>
+                    <a routerLink="/" routerLinkActive="active" router mat-list-item (click)="sidenav.toggle()">
+                        <i class="material-icons">dashboard</i> {{'page.dashboard' | translate}}
+                    </a>
+                    <a routerLink="" routerLinkActive="active" mat-list-item (click)="sidenav.toggle()">
+                        <i class="material-icons">fastfood</i> {{'page.option' | translate}} 1
+                    </a>
+                    <a routerLink="" routerLinkActive="active" mat-list-item (click)="sidenav.toggle()">
+                        <i class="material-icons">dialpad</i> {{'page.option' | translate}} 2
+                    </a>
+                    <a routerLink="" routerLinkActive="active" mat-list-item (click)="sidenav.toggle()">
+                        <i class="material-icons">present_to_all</i>{{'page.option' | translate}} 3
+                    </a>
+                    <a routerLink="" routerLinkActive="active" mat-list-item (click)="sidenav.toggle()">
+                        <i class="material-icons">add_shopping_cart</i> {{'page.option' | translate}} 4
+                    </a>
+
+                </mat-nav-list>
+            </mat-sidenav>
+            <mat-sidenav-content [ngClass]="[!otherTheme ? 'background1' : 'background2']" fxFlexFill>
+                <div fxLayout="row" fxLayoutAlign="center center" *ngIf="emailConfirm">
+                    <div class="confirmemail">
+                        <h3>
+                            {{'page.confirmEmail' | translate}}
+                            <a (click)="UserService.SendVerificationMail()" type="button" style="cursor: pointer;"><u>{{'page.resend' | translate}}</u></a>
+                        </h3>
+
+                    </div>
+                </div>
+                <router-outlet></router-outlet>
+                <footer fxLayout="row" fxLayoutAlign="center">
+                    <app-footer></app-footer>
+                </footer>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+</ng-template>

@@ -1,0 +1,58 @@
+.app {
+    height: 93vh;
+}
+
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-toolbar-row {
+    height: 7vh;
+  }
+
+mat-sidenav-content {
+    margin-left: 0 !important;
+    flex: 1 1 auto;
+}
+
+mat-sidenav {
+  flex: 0 1 auto;
+}
+  
+.background1{
+    background-image: url('../assets/image2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.background2{
+  background-image: url('../assets/image3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.confirmemail {
+  background-color: rgb(184, 72, 72);
+  margin: 1em;
+  border-radius: 1em;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+
+mat-toolbar{
+    position: sticky; 
+}
+
+footer {
+  margin-top: 5em;
+}
+
+@media (min-width: 960px) { 
+  mat-toolbar-row {
+    height: 7vh;
+  }
+  
+}
+

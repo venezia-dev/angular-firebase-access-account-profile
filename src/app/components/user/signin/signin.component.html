@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="container">
+    <mat-card class="card">
+        <h2>Sign in</h2>
+        <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>Accesodecuenta-Perfil</mat-card-title>
+            <mat-card-subtitle>Enter fields to sign in.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="signIn()">
+                <mat-form-field class="input">
+                    <input matInput placeholder="Email" formControlName="email" type="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="40" required>
+                </mat-form-field>
+                <mat-error *ngIf="form.get('email').invalid && (form.get('email').dirty)" >
+                    <div *ngIf="form.get('email').errors.required">
+                        Please, write any valid email.
+                    </div>
+                    <div *ngIf="form.get('email').errors.pattern">
+                        Email valid plz!
+                    </div>
+                </mat-error>
+                <mat-form-field class="input">
+                    <input matInput placeholder="Password" formControlName="password" type="password" minlength="4"
+                        required>
+                </mat-form-field>
+                <mat-error *ngIf="form.get('password').invalid && (form.get('password').dirty)">
+                    <div *ngIf="form.get('password').errors.required">
+                        Please, write any valid password.
+                    </div>
+                    <div *ngIf="form.get('password').errors.minlength">
+                        Password min 4 charcarter!
+                    </div>
+                </mat-error>
+                <p>
+                    <button mat-raised-button color="primary" type="button" (click)="UserService.GoogleAuth()">Login with Google <img src="../../../../assets/google.png" width="25px" height="25px"></button>
+                </p>
+                <p>
+                    <a routerLink="/forgot-password">Forgot password?</a>
+                </p>
+                <div class="form-buttons">
+                    <a routerLink="/signup" class="link">Don't have account?</a>
+                    <button mat-raised-button color="primary" class="btn" [disabled]="form.invalid" type="submit">Sign in</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

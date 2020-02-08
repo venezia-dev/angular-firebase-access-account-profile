@@ -1,0 +1,76 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// custom background and foreground palettes
+$my-dark-theme-background: (
+  status-bar: green,
+  app-bar:    map_get($mat-blue, 900),
+  background: grey,
+  hover:      rgba(white, 0.04), 
+  card:       map_get($mat-grey, 800),
+  dialog:     map_get($mat-grey, 800),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$my-dark-theme-foreground: (
+  base:              grey,
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+@function create-wonky-theme($primary, $accent, $warn) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $my-dark-theme-foreground,
+    background: $my-dark-theme-background,
+  );
+}
+
+/* ======== angular material custom theme ======== */
+$custom-theme-primary: mat-palette($mat-light-blue);
+$custom-theme-accent: mat-palette($mat-amber, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-deep-orange);
+
+$custom-theme: create-wonky-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+@include angular-material-theme($custom-theme);
+
+
+
+// Dark theme
+//$my-custom-theme: mat-dark-theme($my-custom-primary, $my-custom-accent, $my-custom-warn);
+
+// Main theme defination
+//@include angular-material-theme($my-custom-theme);
+
+// Alternate Angular Material Theme
+.alternative {
+  $my-alternate-primary: mat-palette($mat-red);
+  $my-alternate-accent: mat-palette($mat-green, 400);
+  $my-alternate-warn: mat-palette($mat-grey);
+
+  $my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
+
+  @include angular-material-theme($my-alternate-theme);
+}
